@@ -126,7 +126,7 @@ class ProductCell extends StatelessWidget{
   final products;
   final i;
   Color mainColor = const Color(0xff3C3261);
-  var image_url = 'http://shopamate.shop/media/Stores/Store/ProductImage/';
+//  var image_url = 'http://shopamate.shop/media/Stores/Store/ProductImage/';
   ProductCell(this.products,this.i);
 
   @override
@@ -148,7 +148,7 @@ class ProductCell extends StatelessWidget{
                   color: Colors.grey,
                   image: new DecorationImage(
                       image: new NetworkImage(
-                          image_url + products[i]['storeProductImage']),
+                         products[i]['storeProductImage']),
                       fit: BoxFit.cover),
                   boxShadow: [
                     new BoxShadow(
@@ -165,7 +165,7 @@ class ProductCell extends StatelessWidget{
                   margin: const      EdgeInsets.fromLTRB(16.0,0.0,16.0,0.0),
                   child: new Column(children: [
                     new Text(
-                      products[i]['storeProductTitle'],
+                      products[i]['storeProductDescription'],
                       style: new TextStyle(
                           fontSize: 20.0,
                           fontFamily: 'Arvo',
