@@ -148,7 +148,7 @@ class ProductCell extends StatelessWidget{
                   color: Colors.grey,
                   image: new DecorationImage(
                       image: new NetworkImage(
-                          image_url + products[i]['poster_path']),
+                          image_url + products[i]['storeProductImage']),
                       fit: BoxFit.cover),
                   boxShadow: [
                     new BoxShadow(
