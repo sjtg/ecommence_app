@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:shopamate_app/product_details.dart';
 
 
 class ProductList extends StatefulWidget {
@@ -71,6 +72,11 @@ class ProductListState extends State<ProductList> {
 
                     child: new ProductCell(products,i),
                     padding: const EdgeInsets.all(0.0),
+                    onPressed: (){
+                      Navigator.push(context, new MaterialPageRoute(builder: (context){
+                        return new ProductDetail(products[i]);
+                      }));
+                    },
                     color: Colors.white,
                   );
 
@@ -126,7 +132,7 @@ class ProductCell extends StatelessWidget{
   final products;
   final i;
   Color mainColor = const Color(0xff3C3261);
-  var image_url = 'http://shopamate.shop/media/Stores/Store/ProductImage/';
+  // var image_url = 'http://shopamate.shop/media/Stores/Store/ProductImage';
   ProductCell(this.products,this.i);
 
   @override
@@ -148,7 +154,7 @@ class ProductCell extends StatelessWidget{
                   color: Colors.grey,
                   image: new DecorationImage(
                       image: new NetworkImage(
-                          image_url + products[i]['storeProductImage']),
+                          products[i]['storeProductImage']),
                       fit: BoxFit.cover),
                   boxShadow: [
                     new BoxShadow(
@@ -198,19 +204,3 @@ class ProductCell extends StatelessWidget{
 
 }
 
-// new Expanded(
-//   child : new ListView.builder(
-//     itemCount: products == null ? 0: products.length,
-//     itemBuilder:  (context, i) {
-//       return new FlatButton (
-//         child: new ProductCell(products, i),
-//         padding: const EdgeInsets.all(0.0),
-//         onPressed: (){
-//           Navigator.push(context, new MaterialPageRoute(builder: (context){
-//             return new ProductDetail(products[i]);
-//           }));
-//         }, 
-//         color: Colors.white,
-//         );
-//     }),
-// )
